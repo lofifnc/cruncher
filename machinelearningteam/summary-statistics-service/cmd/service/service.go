@@ -41,7 +41,7 @@ func main() {
 	healthServ := health.NewHealthCheckService()
 	api_health.RegisterHealthServer(s, healthServ)
 
-	pb.RegisterDocumentSummarizerServer(s, &api.Server{})
+	pb.RegisterDocumentSummarizerServer(s, api.NewServer())
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}

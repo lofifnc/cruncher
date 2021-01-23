@@ -60,7 +60,7 @@ func main() {
 	if *numberOfRequests > 1 {
 		for i := 1; i < *numberOfRequests; i++ {
 			// just fire against the client ignore errors
-			sendSourceRequest(client, github_source_uri)
+			_, _ = sendSourceRequest(client, github_source_uri)
 		}
 		os.Exit(0)
 	}
