@@ -37,12 +37,23 @@ spec:
       containers:
         - name: summarizer
           image: "ko://github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/cmd/service"
+          imagePullPolicy: Always
           args: []
           env:
-            - name: "SERVER_ADDR"
+            # Address of backend service
+            - name: SERVER_ADDR
               value: "summarizer-backend:50051"
+            # Comma separated list of columns to aggregate on.
+            - name: AGGREGATE_COLUMNS
+              value: "AccountNumber"
+            - name: EXCLUDED_COLUMNS
+              value: "AccountTypeName"
+
           ports:
-            - containerPort: 50051
+            - name: grpc
+              containerPort: 50051
+            - name: prometheus
+              containerPort: 5001
           resources:
             requests:
               memory: 256Mi
@@ -50,12 +61,11 @@ spec:
             limits:
               memory: 768Mi
               cpu: 1000m
-#          We would have to include https://github.com/grpc-ecosystem/grpc-health-probe for this to work. Maybe later.
-#          readinessProbe:
-#            exec:
-#              command:
-#                ["/bin/grpc-health-probe", "-addr=:50051"]
-#          livenessProbe:
-#            exec:
-#              command:
-#                ["/bin/grpc-health-probe", "-addr=:50051"]
+          readinessProbe:
+            exec:
+              command:
+                ["/bin/grpc_health_probe", "-addr=:50051"]
+          livenessProbe:
+            exec:
+              command:
+                ["/bin/grpc_health_probe", "-addr=:50051"]

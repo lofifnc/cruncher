@@ -33,7 +33,7 @@ message DocumentSource {
   string http_uri = 1;
 }
 
-// Froblems defining this in separate file has to life here for the moment.
+// Defining this in separate file, caused problems with generated go code, has to life here for the moment.
 service DocumentSummarizerBackend {
   rpc SummarizeDocument (SummarizeDocumentWorkload) returns (statistics.SummarizeDocumentReply) {}
 }

@@ -6,302 +6,406 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
+
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='api.proto',
-  package='statistics',
-  syntax='proto3',
-  serialized_options=b'Z\\github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/proto',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\tapi.proto\x12\nstatistics\"B\n\x18SummarizeDocumentRequest\x12&\n\x08\x64ocument\x18\x01 \x01(\x0b\x32\x14.statistics.Document\")\n\x16SummarizeDocumentReply\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\"G\n\x08\x44ocument\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\x12*\n\x06source\x18\x02 \x01(\x0b\x32\x1a.statistics.DocumentSource\"\"\n\x0e\x44ocumentSource\x12\x10\n\x08http_uri\x18\x01 \x01(\t\"\x85\x01\n\x19SummarizeDocumentWorkload\x12\x35\n\x07request\x18\x01 \x01(\x0b\x32$.statistics.SummarizeDocumentRequest\x12\x18\n\x10\x61ggregateColumns\x18\x02 \x03(\t\x12\x17\n\x0f\x65xcludedColumns\x18\x03 \x03(\t2u\n\x12\x44ocumentSummarizer\x12_\n\x11SummarizeDocument\x12$.statistics.SummarizeDocumentRequest\x1a\".statistics.SummarizeDocumentReply\"\x00\x32}\n\x19\x44ocumentSummarizerBackend\x12`\n\x11SummarizeDocument\x12%.statistics.SummarizeDocumentWorkload\x1a\".statistics.SummarizeDocumentReply\"\x00\x42^Z\\github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/protob\x06proto3'
+    name="api.proto",
+    package="statistics",
+    syntax="proto3",
+    serialized_options=b"Z\\github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/proto",
+    create_key=_descriptor._internal_create_key,
+    serialized_pb=b'\n\tapi.proto\x12\nstatistics"B\n\x18SummarizeDocumentRequest\x12&\n\x08\x64ocument\x18\x01 \x01(\x0b\x32\x14.statistics.Document")\n\x16SummarizeDocumentReply\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c"G\n\x08\x44ocument\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\x12*\n\x06source\x18\x02 \x01(\x0b\x32\x1a.statistics.DocumentSource""\n\x0e\x44ocumentSource\x12\x10\n\x08http_uri\x18\x01 \x01(\t"\x85\x01\n\x19SummarizeDocumentWorkload\x12\x35\n\x07request\x18\x01 \x01(\x0b\x32$.statistics.SummarizeDocumentRequest\x12\x18\n\x10\x61ggregateColumns\x18\x02 \x03(\t\x12\x17\n\x0f\x65xcludedColumns\x18\x03 \x03(\t2u\n\x12\x44ocumentSummarizer\x12_\n\x11SummarizeDocument\x12$.statistics.SummarizeDocumentRequest\x1a".statistics.SummarizeDocumentReply"\x00\x32}\n\x19\x44ocumentSummarizerBackend\x12`\n\x11SummarizeDocument\x12%.statistics.SummarizeDocumentWorkload\x1a".statistics.SummarizeDocumentReply"\x00\x42^Z\\github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/protob\x06proto3',
 )
 
 
-
-
 _SUMMARIZEDOCUMENTREQUEST = _descriptor.Descriptor(
-  name='SummarizeDocumentRequest',
-  full_name='statistics.SummarizeDocumentRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='document', full_name='statistics.SummarizeDocumentRequest.document', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=25,
-  serialized_end=91,
+    name="SummarizeDocumentRequest",
+    full_name="statistics.SummarizeDocumentRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="document",
+            full_name="statistics.SummarizeDocumentRequest.document",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=25,
+    serialized_end=91,
 )
 
 
 _SUMMARIZEDOCUMENTREPLY = _descriptor.Descriptor(
-  name='SummarizeDocumentReply',
-  full_name='statistics.SummarizeDocumentReply',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='content', full_name='statistics.SummarizeDocumentReply.content', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=93,
-  serialized_end=134,
+    name="SummarizeDocumentReply",
+    full_name="statistics.SummarizeDocumentReply",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="content",
+            full_name="statistics.SummarizeDocumentReply.content",
+            index=0,
+            number=1,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=93,
+    serialized_end=134,
 )
 
 
 _DOCUMENT = _descriptor.Descriptor(
-  name='Document',
-  full_name='statistics.Document',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='content', full_name='statistics.Document.content', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='source', full_name='statistics.Document.source', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=136,
-  serialized_end=207,
+    name="Document",
+    full_name="statistics.Document",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="content",
+            full_name="statistics.Document.content",
+            index=0,
+            number=1,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="source",
+            full_name="statistics.Document.source",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=136,
+    serialized_end=207,
 )
 
 
 _DOCUMENTSOURCE = _descriptor.Descriptor(
-  name='DocumentSource',
-  full_name='statistics.DocumentSource',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='http_uri', full_name='statistics.DocumentSource.http_uri', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=209,
-  serialized_end=243,
+    name="DocumentSource",
+    full_name="statistics.DocumentSource",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="http_uri",
+            full_name="statistics.DocumentSource.http_uri",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=209,
+    serialized_end=243,
 )
 
 
 _SUMMARIZEDOCUMENTWORKLOAD = _descriptor.Descriptor(
-  name='SummarizeDocumentWorkload',
-  full_name='statistics.SummarizeDocumentWorkload',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='request', full_name='statistics.SummarizeDocumentWorkload.request', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='aggregateColumns', full_name='statistics.SummarizeDocumentWorkload.aggregateColumns', index=1,
-      number=2, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='excludedColumns', full_name='statistics.SummarizeDocumentWorkload.excludedColumns', index=2,
-      number=3, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=246,
-  serialized_end=379,
+    name="SummarizeDocumentWorkload",
+    full_name="statistics.SummarizeDocumentWorkload",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="request",
+            full_name="statistics.SummarizeDocumentWorkload.request",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="aggregateColumns",
+            full_name="statistics.SummarizeDocumentWorkload.aggregateColumns",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="excludedColumns",
+            full_name="statistics.SummarizeDocumentWorkload.excludedColumns",
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=246,
+    serialized_end=379,
 )
 
-_SUMMARIZEDOCUMENTREQUEST.fields_by_name['document'].message_type = _DOCUMENT
-_DOCUMENT.fields_by_name['source'].message_type = _DOCUMENTSOURCE
-_SUMMARIZEDOCUMENTWORKLOAD.fields_by_name['request'].message_type = _SUMMARIZEDOCUMENTREQUEST
-DESCRIPTOR.message_types_by_name['SummarizeDocumentRequest'] = _SUMMARIZEDOCUMENTREQUEST
-DESCRIPTOR.message_types_by_name['SummarizeDocumentReply'] = _SUMMARIZEDOCUMENTREPLY
-DESCRIPTOR.message_types_by_name['Document'] = _DOCUMENT
-DESCRIPTOR.message_types_by_name['DocumentSource'] = _DOCUMENTSOURCE
-DESCRIPTOR.message_types_by_name['SummarizeDocumentWorkload'] = _SUMMARIZEDOCUMENTWORKLOAD
+_SUMMARIZEDOCUMENTREQUEST.fields_by_name["document"].message_type = _DOCUMENT
+_DOCUMENT.fields_by_name["source"].message_type = _DOCUMENTSOURCE
+_SUMMARIZEDOCUMENTWORKLOAD.fields_by_name[
+    "request"
+].message_type = _SUMMARIZEDOCUMENTREQUEST
+DESCRIPTOR.message_types_by_name["SummarizeDocumentRequest"] = _SUMMARIZEDOCUMENTREQUEST
+DESCRIPTOR.message_types_by_name["SummarizeDocumentReply"] = _SUMMARIZEDOCUMENTREPLY
+DESCRIPTOR.message_types_by_name["Document"] = _DOCUMENT
+DESCRIPTOR.message_types_by_name["DocumentSource"] = _DOCUMENTSOURCE
+DESCRIPTOR.message_types_by_name[
+    "SummarizeDocumentWorkload"
+] = _SUMMARIZEDOCUMENTWORKLOAD
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-SummarizeDocumentRequest = _reflection.GeneratedProtocolMessageType('SummarizeDocumentRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SUMMARIZEDOCUMENTREQUEST,
-  '__module__' : 'api_pb2'
-  # @@protoc_insertion_point(class_scope:statistics.SummarizeDocumentRequest)
-  })
+SummarizeDocumentRequest = _reflection.GeneratedProtocolMessageType(
+    "SummarizeDocumentRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SUMMARIZEDOCUMENTREQUEST,
+        "__module__": "api_pb2"
+        # @@protoc_insertion_point(class_scope:statistics.SummarizeDocumentRequest)
+    },
+)
 _sym_db.RegisterMessage(SummarizeDocumentRequest)
 
-SummarizeDocumentReply = _reflection.GeneratedProtocolMessageType('SummarizeDocumentReply', (_message.Message,), {
-  'DESCRIPTOR' : _SUMMARIZEDOCUMENTREPLY,
-  '__module__' : 'api_pb2'
-  # @@protoc_insertion_point(class_scope:statistics.SummarizeDocumentReply)
-  })
+SummarizeDocumentReply = _reflection.GeneratedProtocolMessageType(
+    "SummarizeDocumentReply",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SUMMARIZEDOCUMENTREPLY,
+        "__module__": "api_pb2"
+        # @@protoc_insertion_point(class_scope:statistics.SummarizeDocumentReply)
+    },
+)
 _sym_db.RegisterMessage(SummarizeDocumentReply)
 
-Document = _reflection.GeneratedProtocolMessageType('Document', (_message.Message,), {
-  'DESCRIPTOR' : _DOCUMENT,
-  '__module__' : 'api_pb2'
-  # @@protoc_insertion_point(class_scope:statistics.Document)
-  })
+Document = _reflection.GeneratedProtocolMessageType(
+    "Document",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _DOCUMENT,
+        "__module__": "api_pb2"
+        # @@protoc_insertion_point(class_scope:statistics.Document)
+    },
+)
 _sym_db.RegisterMessage(Document)
 
-DocumentSource = _reflection.GeneratedProtocolMessageType('DocumentSource', (_message.Message,), {
-  'DESCRIPTOR' : _DOCUMENTSOURCE,
-  '__module__' : 'api_pb2'
-  # @@protoc_insertion_point(class_scope:statistics.DocumentSource)
-  })
+DocumentSource = _reflection.GeneratedProtocolMessageType(
+    "DocumentSource",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _DOCUMENTSOURCE,
+        "__module__": "api_pb2"
+        # @@protoc_insertion_point(class_scope:statistics.DocumentSource)
+    },
+)
 _sym_db.RegisterMessage(DocumentSource)
 
-SummarizeDocumentWorkload = _reflection.GeneratedProtocolMessageType('SummarizeDocumentWorkload', (_message.Message,), {
-  'DESCRIPTOR' : _SUMMARIZEDOCUMENTWORKLOAD,
-  '__module__' : 'api_pb2'
-  # @@protoc_insertion_point(class_scope:statistics.SummarizeDocumentWorkload)
-  })
+SummarizeDocumentWorkload = _reflection.GeneratedProtocolMessageType(
+    "SummarizeDocumentWorkload",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SUMMARIZEDOCUMENTWORKLOAD,
+        "__module__": "api_pb2"
+        # @@protoc_insertion_point(class_scope:statistics.SummarizeDocumentWorkload)
+    },
+)
 _sym_db.RegisterMessage(SummarizeDocumentWorkload)
 
 
 DESCRIPTOR._options = None
 
 _DOCUMENTSUMMARIZER = _descriptor.ServiceDescriptor(
-  name='DocumentSummarizer',
-  full_name='statistics.DocumentSummarizer',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=381,
-  serialized_end=498,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='SummarizeDocument',
-    full_name='statistics.DocumentSummarizer.SummarizeDocument',
+    name="DocumentSummarizer",
+    full_name="statistics.DocumentSummarizer",
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_SUMMARIZEDOCUMENTREQUEST,
-    output_type=_SUMMARIZEDOCUMENTREPLY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-  ),
-])
+    serialized_start=381,
+    serialized_end=498,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name="SummarizeDocument",
+            full_name="statistics.DocumentSummarizer.SummarizeDocument",
+            index=0,
+            containing_service=None,
+            input_type=_SUMMARIZEDOCUMENTREQUEST,
+            output_type=_SUMMARIZEDOCUMENTREPLY,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+)
 _sym_db.RegisterServiceDescriptor(_DOCUMENTSUMMARIZER)
 
-DESCRIPTOR.services_by_name['DocumentSummarizer'] = _DOCUMENTSUMMARIZER
+DESCRIPTOR.services_by_name["DocumentSummarizer"] = _DOCUMENTSUMMARIZER
 
 
 _DOCUMENTSUMMARIZERBACKEND = _descriptor.ServiceDescriptor(
-  name='DocumentSummarizerBackend',
-  full_name='statistics.DocumentSummarizerBackend',
-  file=DESCRIPTOR,
-  index=1,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=500,
-  serialized_end=625,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='SummarizeDocument',
-    full_name='statistics.DocumentSummarizerBackend.SummarizeDocument',
-    index=0,
-    containing_service=None,
-    input_type=_SUMMARIZEDOCUMENTWORKLOAD,
-    output_type=_SUMMARIZEDOCUMENTREPLY,
+    name="DocumentSummarizerBackend",
+    full_name="statistics.DocumentSummarizerBackend",
+    file=DESCRIPTOR,
+    index=1,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-  ),
-])
+    serialized_start=500,
+    serialized_end=625,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name="SummarizeDocument",
+            full_name="statistics.DocumentSummarizerBackend.SummarizeDocument",
+            index=0,
+            containing_service=None,
+            input_type=_SUMMARIZEDOCUMENTWORKLOAD,
+            output_type=_SUMMARIZEDOCUMENTREPLY,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+)
 _sym_db.RegisterServiceDescriptor(_DOCUMENTSUMMARIZERBACKEND)
 
-DESCRIPTOR.services_by_name['DocumentSummarizerBackend'] = _DOCUMENTSUMMARIZERBACKEND
+DESCRIPTOR.services_by_name["DocumentSummarizerBackend"] = _DOCUMENTSUMMARIZERBACKEND
 
 # @@protoc_insertion_point(module_scope)

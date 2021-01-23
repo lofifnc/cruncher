@@ -4,3 +4,4 @@ protobuf
 grpcio-tools
 mypy-protobuf
 mypy
+prometheus-client

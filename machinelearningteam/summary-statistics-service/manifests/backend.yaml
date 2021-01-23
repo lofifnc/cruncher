@@ -28,21 +28,25 @@ spec:
     metadata:
       labels:
         app: summarizer-backend
-#      annotations:
-#        prometheus.io/scrape: "true"
-#        prometheus.io/port: "5001"
-#        prometheus.io/path: "/metrics"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5001"
+        prometheus.io/path: "/metrics"
     spec:
       terminationGracePeriodSeconds: 60
       containers:
         - name: summarizer-backend
           image: "docker.io/lofifnc/summarizer-backend"
+          imagePullPolicy: Always
           args: []
           env:
             - name: PORT
               value: "50051"
           ports:
-            - containerPort: 50051
+            - name: grpc
+              containerPort: 50051
+            - name: prometheus
+              containerPort: 5001
           resources:
             requests:
               memory: 256Mi
