@@ -28,6 +28,19 @@ message Document {
 message DocumentSource {
   // The URI of the source document. Can be either:
   //
-  // 1. A publicly-accessible image HTTP/HTTPS URL. When fetching images from
+  // 1. A publicly-accessible image HTTP/HTTPS URL.
   string http_uri = 1;
 }
+
+// Froblems defining this in separate file has to life here for the moment.
+service DocumentSummarizerBackend {
+  rpc SummarizeDocument (SummarizeDocumentWorkload) returns (statistics.SummarizeDocumentReply) {}
+}
+
+message SummarizeDocumentWorkload {
+  // workload for the backend service
+  statistics.SummarizeDocumentRequest request = 1;
+  repeated string aggregateColumns = 2;
+  repeated string excludedColumns = 3;
+}
+

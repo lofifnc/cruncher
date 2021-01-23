@@ -13,6 +13,8 @@ const (
 	host = "localhost:50051"
 )
 
+// csv to fetch "https://raw.githubusercontent.com/e-conomic/hiring-assignments/master/machinelearningteam/summary-statistics-service/test.csv"
+
 func main() {
 	conn, err := grpc.Dial(host, grpc.WithInsecure())
 	if err != nil {
@@ -21,14 +23,14 @@ func main() {
 	defer conn.Close()
 	client := pb.NewDocumentSummarizerClient(conn)
 
-	document, err := ioutil.ReadFile("test.csv")
-	if err != nil {
-		log.Fatal("Couldn't read input document")
-	}
+	//document, err := ioutil.ReadFile("test.csv")
+	//if err != nil {
+	//	log.Fatal("Couldn't read input document")
+	//}
 	ctx := context.Background()
 	resp, err := client.SummarizeDocument(ctx, &pb.SummarizeDocumentRequest{
 		Document: &pb.Document{
-			Content: document,
+			Source: &pb.DocumentSource{HttpUri: "https://raw.githubusercontent.com/e-conomic/hiring-assignments/master/machinelearningteam/summary-statistics-service/test.csv"},
 		},
 	})
 

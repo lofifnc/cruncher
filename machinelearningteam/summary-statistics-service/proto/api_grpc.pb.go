@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // DocumentSummarizerClient is the client API for DocumentSummarizer service.
@@ -62,7 +63,7 @@ type UnsafeDocumentSummarizerServer interface {
 }
 
 func RegisterDocumentSummarizerServer(s grpc.ServiceRegistrar, srv DocumentSummarizerServer) {
-	s.RegisterService(&_DocumentSummarizer_serviceDesc, srv)
+	s.RegisterService(&DocumentSummarizer_ServiceDesc, srv)
 }
 
 func _DocumentSummarizer_SummarizeDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -83,7 +84,10 @@ func _DocumentSummarizer_SummarizeDocument_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
-var _DocumentSummarizer_serviceDesc = grpc.ServiceDesc{
+// DocumentSummarizer_ServiceDesc is the grpc.ServiceDesc for DocumentSummarizer service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DocumentSummarizer_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "statistics.DocumentSummarizer",
 	HandlerType: (*DocumentSummarizerServer)(nil),
 	Methods: []grpc.MethodDesc{
@@ -93,5 +97,92 @@ var _DocumentSummarizer_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/api.proto",
+	Metadata: "api.proto",
+}
+
+// DocumentSummarizerBackendClient is the client API for DocumentSummarizerBackend service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DocumentSummarizerBackendClient interface {
+	SummarizeDocument(ctx context.Context, in *SummarizeDocumentWorkload, opts ...grpc.CallOption) (*SummarizeDocumentReply, error)
+}
+
+type documentSummarizerBackendClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDocumentSummarizerBackendClient(cc grpc.ClientConnInterface) DocumentSummarizerBackendClient {
+	return &documentSummarizerBackendClient{cc}
+}
+
+func (c *documentSummarizerBackendClient) SummarizeDocument(ctx context.Context, in *SummarizeDocumentWorkload, opts ...grpc.CallOption) (*SummarizeDocumentReply, error) {
+	out := new(SummarizeDocumentReply)
+	err := c.cc.Invoke(ctx, "/statistics.DocumentSummarizerBackend/SummarizeDocument", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DocumentSummarizerBackendServer is the server API for DocumentSummarizerBackend service.
+// All implementations must embed UnimplementedDocumentSummarizerBackendServer
+// for forward compatibility
+type DocumentSummarizerBackendServer interface {
+	SummarizeDocument(context.Context, *SummarizeDocumentWorkload) (*SummarizeDocumentReply, error)
+	mustEmbedUnimplementedDocumentSummarizerBackendServer()
+}
+
+// UnimplementedDocumentSummarizerBackendServer must be embedded to have forward compatible implementations.
+type UnimplementedDocumentSummarizerBackendServer struct {
+}
+
+func (UnimplementedDocumentSummarizerBackendServer) SummarizeDocument(context.Context, *SummarizeDocumentWorkload) (*SummarizeDocumentReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SummarizeDocument not implemented")
+}
+func (UnimplementedDocumentSummarizerBackendServer) mustEmbedUnimplementedDocumentSummarizerBackendServer() {
+}
+
+// UnsafeDocumentSummarizerBackendServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DocumentSummarizerBackendServer will
+// result in compilation errors.
+type UnsafeDocumentSummarizerBackendServer interface {
+	mustEmbedUnimplementedDocumentSummarizerBackendServer()
+}
+
+func RegisterDocumentSummarizerBackendServer(s grpc.ServiceRegistrar, srv DocumentSummarizerBackendServer) {
+	s.RegisterService(&DocumentSummarizerBackend_ServiceDesc, srv)
+}
+
+func _DocumentSummarizerBackend_SummarizeDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SummarizeDocumentWorkload)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DocumentSummarizerBackendServer).SummarizeDocument(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/statistics.DocumentSummarizerBackend/SummarizeDocument",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DocumentSummarizerBackendServer).SummarizeDocument(ctx, req.(*SummarizeDocumentWorkload))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DocumentSummarizerBackend_ServiceDesc is the grpc.ServiceDesc for DocumentSummarizerBackend service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DocumentSummarizerBackend_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "statistics.DocumentSummarizerBackend",
+	HandlerType: (*DocumentSummarizerBackendServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SummarizeDocument",
+			Handler:    _DocumentSummarizerBackend_SummarizeDocument_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "api.proto",
 }
