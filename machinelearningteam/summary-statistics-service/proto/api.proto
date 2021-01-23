@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option go_package = "github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/proto";
+// Synchronize with repo in order for ko to do it's magic
+option go_package = "github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/proto";
 
 package statistics;
 

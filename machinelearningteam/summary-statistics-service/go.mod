@@ -1,4 +1,4 @@
-module github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service
+module github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service
 
 go 1.12
 

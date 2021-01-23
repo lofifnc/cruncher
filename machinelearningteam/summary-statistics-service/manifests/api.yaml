@@ -36,23 +36,26 @@ spec:
       terminationGracePeriodSeconds: 60
       containers:
         - name: summarizer
-          image: ko://github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/cmd/service
-          command: ["/app/service"]
+          image: "ko://github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/cmd/service"
           args: []
+          env:
+            - name: "SERVER_ADDR"
+              value: "summarizer-backend:50051"
           ports:
             - containerPort: 50051
           resources:
             requests:
               memory: 256Mi
-              cpu: 500m
+              cpu: 1000m
             limits:
               memory: 768Mi
-              cpu: 2500m
-          readinessProbe:
-            exec:
-              command:
-                ["/bin/grpc-health-probe", "-addr=:50051"]
-          livenessProbe:
-            exec:
-              command:
-                ["/bin/grpc-health-probe", "-addr=:50051"]
+              cpu: 1000m
+#          We would have to include https://github.com/grpc-ecosystem/grpc-health-probe for this to work. Maybe later.
+#          readinessProbe:
+#            exec:
+#              command:
+#                ["/bin/grpc-health-probe", "-addr=:50051"]
+#          livenessProbe:
+#            exec:
+#              command:
+#                ["/bin/grpc-health-probe", "-addr=:50051"]

@@ -7,6 +7,7 @@ from urllib import request
 
 from concurrent import futures
 import grpc
+import logging
 import os
 
 PORT = os.getenv("PORT", "10001")
@@ -39,9 +40,10 @@ class DocumentSummarizerBackendServicer(api_pb2_grpc.DocumentSummarizerBackendSe
 
 
 def serve():
+    logging.info(f"Starting server on port: {PORT}")
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     api_pb2_grpc.add_DocumentSummarizerBackendServicer_to_server(
         DocumentSummarizerBackendServicer(), server)
-    server.add_insecure_port('[::]:10001')
+    server.add_insecure_port(f'[::]:{PORT}')
     server.start()
     server.wait_for_termination()

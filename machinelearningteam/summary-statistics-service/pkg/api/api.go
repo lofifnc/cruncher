@@ -3,7 +3,7 @@ package api
 import (
 	"context"
 	"fmt"
-	api "github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/proto"
+	api "github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/proto"
 	"google.golang.org/grpc"
 	"log"
 	"os"

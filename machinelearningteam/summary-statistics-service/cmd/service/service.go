@@ -5,12 +5,12 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/pkg/api"
-	pb "github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/proto"
+	"github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/pkg/api"
+	pb "github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/proto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"google.golang.org/grpc"
 
-	health "github.com/e-conomic/hiring-assignments/machinelearningteam/summary-statistics-service/pkg/health/v1"
+	health "github.com/lofifnc/cruncher/machinelearningteam/summary-statistics-service/pkg/health/v1"
 	api_health "google.golang.org/grpc/health/grpc_health_v1"
 )
 
@@ -27,6 +27,7 @@ func startPromHTTPServer(port string) {
 }
 
 func main() {
+	log.Println("Starting...")
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
