@@ -34,7 +34,9 @@ def calc_statistics(
         filter(partial(column_filter, df, excluded_columns), df.columns.values)
     )[:COLUMN_CUTOFF]
     agg_columns = {"Count": ("CompanyId", "size")}
-    agg_columns.update({c + "Sum": (c, "sum") for c in aggregate_columns})
+    agg_columns.update(
+        {c + "Sum": (c, "sum") for c in set(df.columns.values) & set(aggregate_columns)}
+    )
 
     result = df.groupby(group_columns, as_index=False).agg(**agg_columns)
     out = StringIO()
@@ -43,4 +45,4 @@ def calc_statistics(
 
 
 # with open('../../../test.csv', 'r') as file:
-#     print(calc_statistics(file.read(), [], ["BankEntryAmount"]))
+#     print(calc_statistics(file.read(), ["FANTASY"], ["BankEntryAmount"]))
